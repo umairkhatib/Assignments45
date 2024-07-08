@@ -3,20 +3,11 @@
 let currentUsers = ['umair', 'ali', 'farhan', 'kamran', 'noman'];
 // List of new users to check
 let newUsers = ['UMAIR', 'fatima', 'omer', 'kamran', 'sarah'];
-//Function to check username availibility
-function checkUsernameAvailibilty(currentUsers, newUsersname) {
-    //converting newUsers and currentUsers to lowercase for case insensitive comparison
-    let lowerCaseCurrentusers = currentUsers.map(user => user.toLowerCase());
-    let lowerCaseNewusers = newUsersname.toLowerCase();
-    if (lowerCaseCurrentusers.includes(lowerCaseNewusers)) {
-        return `Sorry , the username '${newUsersname}' is already taken.Please choose a new username.`;
-    }
+for (let new_users of newUsers) {
+    const lowercase_new_user = new_users.toLowerCase();
+    if (currentUsers.map(user => user.toLowerCase()).includes(lowercase_new_user))
+        console.log(`Sorry, the username '${new_users}' is already taken. Please choose a new username.`);
     else {
-        return `Congratulations, the username '${newUsersname}' is available`;
+        console.log(`Congratulations, the username '${new_users}' is available!`);
     }
 }
-// loop through newusers to check for unique usernames
-newUsers.forEach(newUser => {
-    let availibilityMessage = checkUsernameAvailibilty(currentUsers, newUser);
-    console.log(availibilityMessage);
-});
